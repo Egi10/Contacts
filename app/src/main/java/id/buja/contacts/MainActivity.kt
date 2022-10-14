@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.buja.contacts.component.ContactToolbar
 import id.buja.contacts.model.Contact
 import kotlinx.coroutines.launch
 
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_contacts)
+        val toolbar = findViewById<ContactToolbar>(R.id.toolbar)
+
+        toolbar.apply {
+            titleText = getString(R.string.contacts)
+        }
         adapter = MainAdapter(list)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
